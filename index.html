@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>LOTTO PRO</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<header>
+
+<h1>LOTTO PRO</h1>
+
+<p>โปรแกรมคีย์หวย</p>
+
+</header>
+
+
+
+<div class="card">
+
+
+<label>
+หมายเลข
+</label>
+
+
+<div id="tagContainer"
+class="tag-container">
+
+
+<input
+id="numberInput"
+type="tel"
+inputmode="numeric"
+autocomplete="off"
+placeholder="กรอกเลข">
+
+
+</div>
+
+
+
+<label>
+บน
+</label>
+
+
+<input
+id="topInput"
+type="tel"
+inputmode="numeric"
+autocomplete="off"
+placeholder="0">
+
+
+
+<label>
+โต๊ด / กลับ
+</label>
+
+
+<input
+id="todInput"
+type="tel"
+inputmode="numeric"
+autocomplete="off"
+placeholder="0">
+
+
+
+<button id="saveBtn">
+บันทึก
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="history card">
+
+
+<h2>
+ประวัติ
+</h2>
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>No</th>
+
+<th>เลข</th>
+
+<th>บน</th>
+
+<th>โต๊ด</th>
+
+<th></th>
+
+</tr>
+
+
+</thead>
+
+
+
+<tbody id="historyBody">
+
+
+</tbody>
+
+
+
+</table>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<script src="config.js"></script>
+
+<script src="script.js"></script>
+
+
+</body>
+
+
+</html>
