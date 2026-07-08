@@ -1650,8 +1650,3 @@ function prepareRows(rows){
 
 }
 
-button:disabled{
-
-    opacity:.6;
-
-}

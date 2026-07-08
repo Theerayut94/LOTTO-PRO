@@ -380,3 +380,7 @@ tbody tr:nth-child(even){
     }
 
 }
+
+button:disabled{
+    opacity:.6;
+}
