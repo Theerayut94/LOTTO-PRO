@@ -282,204 +282,6 @@ todInput.addEventListener("keydown",function(e){
 
 });
 
-// =====================================
-// PART 2 : NUMBER LOGIC
-// =====================================
-
-
-
-// =====================================
-// ตรวจเลขตอง
-// เช่น 111 222 999
-// =====================================
-
-function isTriple(number){
-
-    return (
-
-        number[0] === number[1] &&
-
-        number[1] === number[2]
-
-    );
-
-}
-
-
-
-
-// =====================================
-// ตรวจเลขกลับ 3 ตัว
-// เช่น 101 121 122
-// =====================================
-
-function isThreeWay(number){
-
-
-    if(isTriple(number)){
-
-        return false;
-
-    }
-
-
-
-    let unique = new Set(
-
-        number.split("")
-
-    );
-
-
-
-    return unique.size === 2;
-
-
-}
-
-
-
-
-
-
-// =====================================
-// สร้างเลขกลับ 3 ตัว
-// เลขหลักต้องอยู่ตัวแรก
-// =====================================
-
-
-function generateThreeWay(number){
-
-
-    let result=[];
-
-
-
-    function permute(arr,start){
-
-
-        if(start===arr.length){
-
-
-            let value=arr.join("");
-
-
-
-            if(!result.includes(value)){
-
-                result.push(value);
-
-            }
-
-
-
-            return;
-
-
-        }
-
-
-
-        let used=[];
-
-
-
-        for(let i=start;i<arr.length;i++){
-
-
-
-            if(used.includes(arr[i])){
-
-                continue;
-
-            }
-
-
-
-            used.push(arr[i]);
-
-
-
-            [
-
-                arr[start],
-
-                arr[i]
-
-            ]=[
-
-                arr[i],
-
-                arr[start]
-
-            ];
-
-
-
-            permute(arr,start+1);
-
-
-
-
-            [
-
-                arr[start],
-
-                arr[i]
-
-            ]=[
-
-                arr[i],
-
-                arr[start]
-
-            ];
-
-
-
-        }
-
-
-
-    }
-
-
-
-    permute(
-
-        number.split(""),
-
-        0
-
-    );
-
-
-
-    // เอาเลขที่คีย์ไว้หน้าเสมอ
-
-
-    result = [
-
-        number,
-
-        ...result.filter(
-
-            item=>item!==number
-
-        )
-
-    ];
-
-
-
-    return result;
-
-
-}
-
-
-
-
 
 
 // =====================================
@@ -987,43 +789,17 @@ async function(){
 
     // แสดงหน้าเว็บทันที
 
-    historyData.unshift(
+   historyData.unshift(
+    ...newRows
+);
 
-        ...newRows
+renderHistory();
 
-    );
+clearInput();
 
+syncToGoogleSheet(newRows);
 
-
-    renderHistory();
-
-
-
-
-
-
-    // ส่ง Google Sheet
-
-    await syncToGoogleSheet(
-
-        newRows
-
-    );
-
-
-
-
-
-
-    clearInput();
-
-
-
-
-
-    saveBtn.innerHTML=
-
-    "บันทึก";
+saveBtn.innerHTML="บันทึก";
 
 
 
@@ -1049,72 +825,43 @@ async function(){
 
 function renderHistory(){
 
-
-
-    historyBody.innerHTML="";
-
-
-
-
+    let html="";
 
     historyData.forEach(row=>{
 
+        html+=`
 
+        <tr>
 
-        let tr=document.createElement("tr");
+            <td>${row.no}</td>
 
+            <td>${row.number}</td>
 
+            <td>${row.top}</td>
 
+            <td>${row.tod}</td>
 
+            <td>
 
-        tr.innerHTML=`
+                <button
+                class="delete-btn"
+                onclick="deleteRow('${row.id}')">
 
-        <td>${row.no}</td>
+                ×
 
-        <td>${row.number}</td>
+                </button>
 
-        <td>${row.top}</td>
+            </td>
 
-        <td>${row.tod}</td>
-
-        <td>
-
-        <button
-
-        class="delete-btn"
-
-        onclick="deleteRow('${row.id}')">
-
-        ×
-
-        </button>
-
-        </td>
+        </tr>
 
         `;
 
-
-
-
-
-        historyBody.appendChild(tr);
-
-
-
     });
 
-
+    historyBody.innerHTML=html;
 
 }
-
-
-
-
-
-
-
-
-
 // =====================================
 // ลบรายการ
 // =====================================
@@ -1236,8 +983,6 @@ async function syncToGoogleSheet(data){
 
                 method:"POST",
 
-                mode:"no-cors",
-
                 headers:{
 
                     "Content-Type":
@@ -1333,99 +1078,6 @@ async function deleteFromGoogleSheet(id){
 
     );
 
-
-
-}
-
-// =====================================
-// LOAD DATA FROM GOOGLE SHEET
-// =====================================
-
-
-window.addEventListener("load",function(){
-
-    loadFromGoogleSheet();
-
-});
-
-
-
-
-
-function loadFromGoogleSheet(){
-
-
-    if(!GOOGLE_SCRIPT_URL){
-
-        return;
-
-    }
-
-
-
-    fetch(GOOGLE_SCRIPT_URL,{
-
-        method:"POST",
-
-        headers:{
-
-            "Content-Type":"text/plain"
-
-        },
-
-
-        body:JSON.stringify({
-
-            action:"load"
-
-        })
-
-
-    })
-
-    .then(res=>res.json())
-
-
-    .then(data=>{
-
-
-
-        historyData = data || [];
-
-
-
-        if(historyData.length>0){
-
-
-            runningNo = Math.max(
-
-                ...historyData.map(
-
-                    item=>Number(item.no)
-
-                )
-
-            )+1;
-
-
-        }
-
-
-
-        renderHistory();
-
-
-
-    })
-
-
-    .catch(err=>{
-
-
-        console.log(err);
-
-
-    });
 
 
 }
