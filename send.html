@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>LOTTO PRO - ส่งข้อมูล</title>
+
+<link rel="stylesheet"
+href="send.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =================================
+         HEADER
+    ================================== -->
+
+    <header>
+
+        <div class="logo">
+            LOTTO PRO.
+        </div>
+
+        <div class="subtitle">
+            ข้อมูลสำหรับส่ง
+        </div>
+
+
+        <button
+            id="refreshBtn"
+            class="refresh-btn">
+
+            🔄 รีเฟรชข้อมูล
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =================================
+         COPY CONTROL
+    ================================== -->
+
+    <div class="card copy-card">
+
+
+        <div class="section-title">
+
+            <span>
+                📋 Copy ข้อมูล
+            </span>
+
+        </div>
+
+
+        <div class="range">
+
+
+            <div class="range-box">
+
+                <label>
+                    เริ่มรายการ
+                </label>
+
+                <input
+                    id="startNo"
+                    type="number"
+                    min="1"
+                    placeholder="1">
+
+            </div>
+
+
+            <div class="range-box">
+
+                <label>
+                    ถึงรายการ
+                </label>
+
+                <input
+                    id="endNo"
+                    type="number"
+                    min="1"
+                    placeholder="20">
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            id="copyInfo"
+            class="copy-info">
+
+            เลือกได้ไม่เกิน 20 รายการ
+
+        </div>
+
+
+
+        <div class="copy-buttons">
+
+
+            <button
+                id="copyTopBtn"
+                class="copy-btn top-btn">
+
+                <span>📋</span>
+
+                <span>
+                    Copy บน
+                </span>
+
+            </button>
+
+
+
+            <button
+                id="copyTodBtn"
+                class="copy-btn tod-btn">
+
+                <span>📋</span>
+
+                <span>
+                    Copy โต๊ด
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+
+        <button
+            id="clearCopiedBtn"
+            class="clear-btn">
+
+            ♻️ ล้างสถานะ Copy
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =================================
+         STATUS
+    ================================== -->
+
+    <div
+        id="status"
+        class="status">
+
+        กำลังโหลดข้อมูล...
+
+    </div>
+
+
+
+    <!-- =================================
+         DATA
+    ================================== -->
+
+    <div
+        id="dataBody"
+        class="data-list">
+
+    </div>
+
+
+
+    <!-- =================================
+         EMPTY
+    ================================== -->
+
+    <div
+        id="emptyMessage"
+        class="empty"
+        style="display:none;">
+
+        ไม่พบข้อมูล
+
+    </div>
+
+
+</div>
+
+
+<script src="send.js"></script>
+
+</body>
+
+</html>

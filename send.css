@@ -1,0 +1,638 @@
+/* =====================================
+   LOTTO PRO SEND
+   MOBILE DESIGN
+===================================== */
+
+
+*{
+
+    box-sizing:border-box;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+
+body{
+
+    font-family:'Kanit',sans-serif;
+
+    background:#eef3f8;
+
+    color:#222;
+
+}
+
+
+.app{
+
+    width:100%;
+
+    max-width:600px;
+
+    margin:auto;
+
+    padding:12px;
+
+}
+
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+
+header{
+
+    text-align:center;
+
+    margin-bottom:12px;
+
+}
+
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#1565c0;
+
+}
+
+
+.subtitle{
+
+    color:#777;
+
+    font-size:15px;
+
+    margin-bottom:12px;
+
+}
+
+
+.refresh-btn{
+
+    width:100%;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#16a34a;
+
+    color:white;
+
+    font-family:'Kanit';
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.refresh-btn:active{
+
+    transform:scale(.98);
+
+}
+
+
+.refresh-btn:disabled{
+
+    opacity:.6;
+
+}
+
+
+
+/* =====================================
+   CARD
+===================================== */
+
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:15px;
+
+    margin-bottom:12px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.07);
+
+}
+
+
+.section-title{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+}
+
+
+
+/* =====================================
+   RANGE
+===================================== */
+
+
+.range{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+}
+
+
+.range-box label{
+
+    display:block;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:5px;
+
+}
+
+
+.range-box input{
+
+    width:100%;
+
+    height:48px;
+
+    border:2px solid #ddd;
+
+    border-radius:12px;
+
+    padding:0 12px;
+
+    font-family:'Kanit';
+
+    font-size:20px;
+
+    text-align:center;
+
+    outline:none;
+
+}
+
+
+.range-box input:focus{
+
+    border-color:#1976d2;
+
+}
+
+
+.copy-info{
+
+    margin-top:8px;
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+
+
+/* =====================================
+   COPY BUTTON
+===================================== */
+
+
+.copy-buttons{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+    margin-top:12px;
+
+}
+
+
+.copy-btn{
+
+    height:52px;
+
+    border:none;
+
+    border-radius:13px;
+
+    color:white;
+
+    font-family:'Kanit';
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.top-btn{
+
+    background:#1565c0;
+
+}
+
+
+.tod-btn{
+
+    background:#7c3aed;
+
+}
+
+
+.copy-btn:active{
+
+    transform:scale(.97);
+
+}
+
+
+
+.clear-btn{
+
+    width:100%;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    margin-top:10px;
+
+    background:#f1f5f9;
+
+    color:#555;
+
+    font-family:'Kanit';
+
+    font-size:14px;
+
+    cursor:pointer;
+
+}
+
+
+.clear-btn:active{
+
+    transform:scale(.98);
+
+}
+
+
+
+/* =====================================
+   STATUS
+===================================== */
+
+
+.status{
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:14px;
+
+    margin:8px 0 12px;
+
+}
+
+
+
+/* =====================================
+   DATA CARD
+===================================== */
+
+
+.data-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+.data-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:14px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.06);
+
+}
+
+
+
+/* =====================================
+   NUMBER HEADER
+===================================== */
+
+
+.number-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-bottom:12px;
+
+}
+
+
+.no{
+
+    font-size:13px;
+
+    color:#888;
+
+    background:#f1f5f9;
+
+    padding:3px 9px;
+
+    border-radius:20px;
+
+}
+
+
+.number{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#1565c0;
+
+    letter-spacing:2px;
+
+}
+
+
+
+/* =====================================
+   SEND BOX
+===================================== */
+
+
+.send-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:8px;
+
+}
+
+
+.send-box{
+
+    border-radius:13px;
+
+    padding:10px 6px;
+
+    text-align:center;
+
+}
+
+
+.send-box.top{
+
+    background:#eff6ff;
+
+}
+
+
+.send-box.tod{
+
+    background:#f5f3ff;
+
+}
+
+
+.send-label{
+
+    font-size:13px;
+
+    color:#777;
+
+    margin-bottom:2px;
+
+}
+
+
+.send-value{
+
+    font-family:monospace;
+
+    font-size:19px;
+
+    font-weight:600;
+
+    word-break:break-all;
+
+}
+
+
+.send-box.top .send-value{
+
+    color:#1565c0;
+
+}
+
+
+.send-box.tod .send-value{
+
+    color:#7c3aed;
+
+}
+
+
+.empty-value{
+
+    color:#bbb !important;
+
+}
+
+
+
+/* =====================================
+   COPIED STATUS
+===================================== */
+
+
+.copied-status{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:6px;
+
+    flex-wrap:wrap;
+
+    margin-top:10px;
+
+}
+
+
+.copied-badge{
+
+    font-size:12px;
+
+    padding:3px 9px;
+
+    border-radius:20px;
+
+    font-weight:500;
+
+}
+
+
+.copied-top{
+
+    background:#dbeafe;
+
+    color:#1565c0;
+
+}
+
+
+.copied-tod{
+
+    background:#ede9fe;
+
+    color:#7c3aed;
+
+}
+
+
+
+/* =====================================
+   EMPTY
+===================================== */
+
+
+.empty{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#888;
+
+}
+
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+
+@media(max-width:400px){
+
+    .app{
+
+        padding:9px;
+
+    }
+
+
+    .logo{
+
+        font-size:27px;
+
+    }
+
+
+    .number{
+
+        font-size:25px;
+
+    }
+
+
+    .send-value{
+
+        font-size:17px;
+
+    }
+
+
+    .copy-btn{
+
+        font-size:16px;
+
+    }
+
+}
+
+
+
+/* =====================================
+   DESKTOP
+===================================== */
+
+
+@media(min-width:601px){
+
+    .app{
+
+        padding-top:25px;
+
+    }
+
+}

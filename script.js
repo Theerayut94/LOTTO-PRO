@@ -505,6 +505,36 @@ function splitTodMoney(total,count){
 }
 
 
+// =====================================
+// แบ่งยอดก่อนคำนวณ
+// บนไม่เกิน 200 บาท / ก้อน
+// โต๊ดไม่เกิน 1,200 บาท / ก้อน
+// =====================================
+
+function splitBetAmount(top, tod){
+
+    let result = [];
+
+    top = Number(top) || 0;
+    tod = Number(tod) || 0;
+
+    while(top > 0 || tod > 0){
+
+        let topPart = Math.min(top, 200);
+        let todPart = Math.min(tod, 1200);
+
+        result.push({
+            top: topPart,
+            tod: todPart
+        });
+
+        top -= topPart;
+        tod -= todPart;
+    }
+
+    return result;
+}
+
 
 // =====================================
 // คำนวณเลขแต่ละตัว
@@ -741,21 +771,33 @@ async function(){
     let tempRows=[];
 
 
+// =====================================
+// แบ่งยอดก่อนคำนวณ
+// บนไม่เกิน 200
+// โต๊ดไม่เกิน 1,200
+// =====================================
 
-    tags.forEach(number=>{
+let betParts = splitBetAmount(
+    top,
+    tod
+);
 
+
+tags.forEach(number=>{
+
+
+    betParts.forEach(part=>{
 
 
         let result = calculateNumber(
 
             number,
 
-            top,
+            part.top,
 
-            tod
+            part.tod
 
         );
-
 
 
         tempRows.push(
@@ -765,8 +807,10 @@ async function(){
         );
 
 
-
     });
+
+
+});
 
 
 
